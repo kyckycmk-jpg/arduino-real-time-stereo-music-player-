@@ -1,0 +1,52 @@
+# Circuit Description
+
+## Components
+- Operational Amplifier: STMicroelectronics LM358N (dual op-amp)
+- Speakers: PCB-mount speaker unit UGSM23A (8 Ω / 0.08 W)
+
+## Left Channel (L)
+Stereo Mini Jack L → 10 kΩ → 10 µF → point cL  
+Arduino 5V → 20 kΩ → point cL  
+point cL → Op-amp L IN+  
+point cL → 20 kΩ → Arduino GND  
+
+## Right Channel (R)
+Stereo Mini Jack R → 10 kΩ → 10 µF → point cR  
+Arduino 5V → 20 kΩ → point cR  
+point cR → Op-amp R IN+  
+point cR → 20 kΩ → Arduino GND  
+
+## Ground
+Stereo Mini Jack GND → Arduino GND
+
+## LEDs (Analog Inputs)
+Arduino A0 → LED → 5 kΩ → GND  
+Arduino A1 → LED → 5 kΩ → GND  
+Arduino A3 → LED → 5 kΩ → GND  
+
+## Bias / Reference Network
+Arduino 5V → 1 kΩ → 1 kΩ → point d → Arduino A2  
+point d → 1 kΩ → Arduino GND  
+
+## Speaker Drive (Digital Outputs)
+Right Speaker +:  
+Arduino D3 → 120 Ω → 220 Ω → Right Speaker +  
+Arduino D4 → 220 Ω → Right Speaker +  
+
+Left Speaker +:  
+Arduino D5 → 220 Ω → Left Speaker +  
+Arduino D7 → 120 Ω → 220 Ω → Left Speaker +  
+
+Speaker − → Arduino GND
+
+## Op-amp Power and Outputs
+Arduino 5V → Op-amp VCC+  
+Op-amp VCC− → Arduino GND  
+
+Left Output Path:  
+Op-amp L OUT → point EL → 1 kΩ → Arduino A4  
+Op-amp L IN− → point EL  
+
+Right Output Path:  
+Op-amp R OUT → point ER → 1 kΩ → Arduino A5  
+Op-amp R IN− → point ER
