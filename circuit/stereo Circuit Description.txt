@@ -50,3 +50,5 @@ Op-amp L IN− → point EL
 Right Output Path:  
 Op-amp R OUT → point ER → 1 kΩ → Arduino A5  
 Op-amp R IN− → point ER
+
+I also added a bypass capacitor, now that I think about it.
